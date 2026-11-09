@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-09
 
-**Status:** Provisional; the final choice belongs to the exhibit group.
+**Status:** Chosen: Cabinet, promoted to `/` on 2026-11-09.
 
 **Board:** <http://localhost:4321/vm-colors/themes/>
 
@@ -50,24 +50,17 @@
 | **Nocturne / Đêm** | The most music-forward and memorable. The full-bleed video, timecode labels, and transcript lyrics make the performance the center. The signal-color system gives each genre a clear identity. | Dark mode is a stronger commitment; the mono English translations are small, and the huge Anton titles can dominate the page. | The best alternative if the performance should lead. |
 | **Street Pop / Phố** | The most contemporary and the strongest expression of bilingual identity. Vietnamese is the headline, English is the annotation, and the poster triptych is distinctive. | The busiest direction; the offset shadows, rotations, and color blocks need discipline. The small mono English may be harder for some readers. | The best alternative for a younger audience or a more public-facing site. |
 
-## Recommendation
+## Decision
 
-**Cabinet** is the provisional recommendation for the exhibit. It is the best
-fit for the museum framing, it treats the bilingual prose and the placard as
+**Cabinet** was chosen and promoted to `/` on 2026-11-09. It is the best fit
+for the museum framing, it treats the bilingual prose and the placard as
 first-class objects, and it is the easiest of the three new directions to read
 at length. It is also clearly distinct from the v1 baseline, so it answers the
 original critique without becoming a costume.
 
-Keep **Nocturne** as the performance-led alternative and **Street Pop** as the
-contemporary, youth-facing alternative. If the group expects the video and the
-song excerpts to be the main draw, Nocturne may be the better choice; if the
-group wants the site to feel more public and contemporary, Street Pop is the
-stronger bet.
-
-The final choice should be made after opening the board at desktop and mobile
-widths and reading the Red page in each direction. The next batch should promote
-the chosen theme to `/`, remove the preview-only chrome and `noindex`, and
-deploy it.
+Nocturne and Street Pop remain in the design archive as the performance-led and
+contemporary alternatives. The archive is unlinked from the live site, excluded
+from the sitemap, and marked `noindex`.
 
 ## Notes
 

@@ -2,9 +2,9 @@
 
 A small virtual museum exhibit on three genres of Vietnamese music — red,
 yellow, and green — rebuilt as a static [Astro](https://astro.build/) site. The
-genre pages are MDX files composed from React content components, and the same
-content renders under four design directions: the v1 baseline and three new
-themes.
+genre pages are MDX files composed from React content components. The live
+design direction is **Cabinet / Tủ Trưng Bày**; the other directions remain
+available as a design archive.
 
 ## Status
 
@@ -15,9 +15,8 @@ themes.
 | Yellow music | `/yellow/` | Content received; Vietnamese placard interpretation pending |
 | Green music | `/green/` | Content received; song link, title, and artist pending |
 
-The baseline theme is the published v1 treatment, ported to the new content
-model. Three new directions — Cabinet, Nocturne, and Street Pop — are available
-on the design review board at `/themes/`.
+The live design direction is Cabinet / Tủ Trưng Bày. Baseline, Nocturne, and
+Street Pop are preserved on the design archive at `/themes/`.
 
 ## Preview the site
 
@@ -33,7 +32,7 @@ on the design review board at `/themes/`.
    file.
 4. Press `Ctrl+C` to stop.
 
-The design review board is at <http://localhost:4321/vm-colors/themes/>.
+The design archive is at <http://localhost:4321/vm-colors/themes/>.
 
 To check the production build locally:
 
@@ -42,21 +41,21 @@ npm run build
 npm run preview
 ```
 
-## Review the design directions
+## Design archive
 
-The board at `/themes/` shows four renderings of the same three genre pages:
+The board at `/themes/` keeps four renderings of the same three genre pages:
 
+- **Cabinet / Tủ Trưng Bày** — the live direction: serif folio, vitrine video,
+  broadside lyrics, engraved placard.
 - **Baseline / Paper** — the v1 treatment, kept as a control.
-- **Cabinet / Tủ Trưng Bày** — a contemporary cabinet of curiosities: serif
-  folio, vitrine video, broadside lyrics, engraved placard.
 - **Nocturne / Đêm** — a music-forward night mode: full-bleed video, timecode
   labels, transcript lyrics, signal colors.
 - **Street Pop / Phố** — a bilingual poster wall: oversized Vietnamese,
   asymmetric grid, color blocks, zine placard.
 
-Each preview is a full working page. Open the landing page and the Red page in
-each direction at desktop and mobile widths. The review is local for now; the
-published v1 stays live until a direction is chosen.
+Each preview is a full working page. The archive is not linked from the live
+site, is excluded from the sitemap, and is marked `noindex`; it is available by
+direct URL for the group's reference.
 
 ## Edit or add a page
 

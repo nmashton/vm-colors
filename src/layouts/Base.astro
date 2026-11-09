@@ -56,9 +56,6 @@ const homeHref = preview ? url(`/themes/${preview.theme}/`) : url("/");
         <span class="site-mark-title">{site.title}</span>
         <span class="site-mark-sub">{site.tagline}</span>
       </a>
-      <nav class="site-nav" aria-label="Site">
-        <a href={url("/themes/")}>Design directions</a>
-      </nav>
     </header>
 
     <main id="main" tabindex="-1">
@@ -67,7 +64,6 @@ const homeHref = preview ? url(`/themes/${preview.theme}/`) : url("/");
 
     <footer class="site-footer">
       <p>{site.title} · {site.tagline}</p>
-      <p><a href={url("/themes/")}>Design directions</a></p>
     </footer>
   </body>
 </html>

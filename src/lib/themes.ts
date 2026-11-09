@@ -97,7 +97,7 @@ export const themes = [
 
 export type ThemeSlug = (typeof themes)[number]["slug"];
 
-export const defaultTheme: ThemeSlug = "baseline";
+export const defaultTheme: ThemeSlug = "cabinet";
 
 export function getTheme(slug: string): Theme | undefined {
   return themes.find((theme) => theme.slug === slug);
