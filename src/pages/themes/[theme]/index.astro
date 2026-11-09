@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Base from "../../../layouts/Base.astro";
 import Landing from "../../../components/Landing.astro";
 import { site } from "../../../data/site";
-import { themes, type ThemeSlug } from "../../../lib/themes";
+import { themes } from "../../../lib/themes";
 
 export async function getStaticPaths() {
   return themes.map((theme) => ({
@@ -23,11 +23,11 @@ const entries = (await getCollection("music")).sort(
 ---
 
 <Base
-  theme={theme.slug as ThemeSlug}
+  theme={theme.slug}
   title={`${site.title} — ${theme.name} preview`}
   description={theme.thesis}
   noindex
-  preview={{ theme: theme.slug as ThemeSlug, path: "/" }}
+  preview={{ theme: theme.slug, path: "/" }}
 >
   <Landing entries={entries} basePath={`/themes/${theme.slug}`} />
 </Base>

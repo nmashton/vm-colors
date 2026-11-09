@@ -3,8 +3,6 @@ import Base from "../../layouts/Base.astro";
 import { themes } from "../../lib/themes";
 import { url } from "../../lib/url";
 import "../../styles/board.css";
-
-const red = "red";
 ---
 
 <Base
@@ -91,7 +89,7 @@ const red = "red";
 
             <nav class="board-links" aria-label={`${theme.name} pages`}>
               <a href={url(`/themes/${theme.slug}/`)}>Landing</a>
-              <a href={url(`/themes/${theme.slug}/${red}/`)}>Red</a>
+              <a href={url(`/themes/${theme.slug}/red/`)}>Red</a>
               <a href={url(`/themes/${theme.slug}/yellow/`)}>Yellow</a>
               <a href={url(`/themes/${theme.slug}/green/`)}>Green</a>
             </nav>
