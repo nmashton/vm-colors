@@ -66,23 +66,32 @@ list; no template edit is needed. Pick an existing accent (`red`, `yellow`,
 
 If something needs to change in those files, ask the maintainer.
 
-## Build for publishing
+## Publishing
+
+The site is set up for GitHub Pages at
+<https://nmashton.github.io/vm-colors/>.
+
+- Push to `main` (or run the workflow by hand from the Actions tab).
+- `.github/workflows/deploy.yml` installs the pinned Zola version, runs
+  `zola build`, and publishes `public/` to GitHub Pages.
+
+First-time setup, once per repository:
+
+1. Make the repository public (Settings → General → Danger Zone → Change
+   visibility), unless the account has a plan that includes Pages for private
+   repositories.
+2. Open Settings → Pages and set **Source** to **GitHub Actions**.
+3. Push to `main` or re-run the workflow.
+
+To check the build by hand before pushing:
 
 ```sh
 zola build
-```
-
-The finished site is written to `public/`. The site is configured for
-`https://bckybtlr.com/vm-colors/`; publishing that folder is still to be arranged
-with whoever runs the server. Internal links and the stylesheet use that prefix,
-so upload the contents of `public/` into the `/vm-colors/` directory rather than
-the domain root.
-
-Before publishing, run:
-
-```sh
 zola check
 ```
+
+The build uses `base_url` from `zola.toml`; if the site later moves to a custom
+domain, change that one line and push again.
 
 ## Notes for the group
 
