@@ -132,6 +132,8 @@ src/
   lib/               theme registry, URL helper, MDX component map
   pages/             root pages, theme previews, 404
   styles/            base CSS, fonts, theme CSS, board CSS
+public/              favicon and robots.txt
+scripts/             internal link checker
 docs/music-page.md   authoring guide and skeleton
 notes/               research, theme briefs, review
 ```
