@@ -1,0 +1,32 @@
+---
+import { themes, type ThemeSlug } from "../lib/themes";
+import { themePath, url } from "../lib/url";
+
+interface Props {
+  theme: ThemeSlug;
+  path: string;
+}
+
+const { theme, path } = Astro.props;
+const current = themes.find((item) => item.slug === theme);
+---
+
+<div class="theme-bar" role="region" aria-label="Design preview">
+  <p class="theme-bar-label">
+    Design preview: <strong>{current?.name}</strong>
+    <span class="theme-bar-subtitle">{current?.subtitle}</span>
+  </p>
+  <nav class="theme-bar-nav" aria-label="Switch design direction">
+    {
+      themes.map((item) => (
+        <a
+          href={themePath(item.slug, path)}
+          aria-current={item.slug === theme ? "page" : undefined}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+    <a class="theme-bar-board" href={url("/themes/")}>All directions</a>
+  </nav>
+</div>

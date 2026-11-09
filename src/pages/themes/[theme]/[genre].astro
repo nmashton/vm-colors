@@ -1,0 +1,35 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+import GenrePage from "../../../components/GenrePage.astro";
+import { themes, type ThemeSlug } from "../../../lib/themes";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("music");
+  return themes.flatMap((theme) =>
+    entries.map((entry) => ({
+      params: { theme: theme.slug, genre: entry.id },
+      props: { theme, entry },
+    })),
+  );
+}
+
+interface Props {
+  theme: (typeof themes)[number];
+  entry: CollectionEntry<"music">;
+}
+
+const { theme, entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Base
+  theme={theme.slug as ThemeSlug}
+  accent={entry.data.accent}
+  title={`${entry.data.title} — ${theme.name} preview`}
+  description={entry.data.description}
+  noindex
+  preview={{ theme: theme.slug as ThemeSlug, path: `/${entry.id}/` }}
+>
+  <GenrePage entry={entry} Content={Content} />
+</Base>

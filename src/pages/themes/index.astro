@@ -1,0 +1,103 @@
+---
+import Base from "../../layouts/Base.astro";
+import { themes } from "../../lib/themes";
+import { url } from "../../lib/url";
+import "../../styles/board.css";
+
+const red = "red";
+---
+
+<Base
+  theme="board"
+  title="Design directions"
+  description="Four renderings of the same exhibit content: a review board for the second pass."
+  noindex
+>
+  <article class="board">
+    <header class="board-header">
+      <p class="eyebrow">Design review</p>
+      <h1>Four directions, one content model</h1>
+      <p class="board-lede">
+        The same three genre pages, the same words, the same video and lyric
+        data. Each direction below is a different argument about how the exhibit
+        should feel. The baseline is the published v1 treatment; the other
+        three are new.
+      </p>
+      <div class="board-how">
+        <h2>How to review</h2>
+        <ol>
+          <li>Open each full preview and read the Red page from top to bottom.</li>
+          <li>Check the landing page and all three genres at desktop and mobile widths.</li>
+          <li>
+            Compare distinctiveness, fit to the music, lyric readability, and
+            whether the placard still feels like a museum label.
+          </li>
+        </ol>
+      </div>
+    </header>
+
+    <section class="board-grid" aria-label="Theme previews">
+      {
+        themes.map((theme) => (
+          <article class="board-card">
+            <header class="board-card-header">
+              <p class="board-kicker">{theme.subtitle}</p>
+              <h2 class="board-card-title">{theme.name}</h2>
+              <p class="board-thesis">{theme.thesis}</p>
+            </header>
+
+            <div class="board-preview">
+              <iframe
+                src={url(`/themes/${theme.slug}/red/`)}
+                title={`${theme.name}: Red music preview`}
+                loading="lazy"
+                tabindex="-1"
+                aria-hidden="true"
+              />
+            </div>
+
+            <dl class="board-meta">
+              <dt>References</dt>
+              <dd>
+                {theme.references.length > 0
+                  ? theme.references.map((reference, index) => (
+                      <>
+                        {index > 0 && " · "}
+                        <a href={reference.url}>{reference.name}</a>
+                      </>
+                    ))
+                  : "v1 baseline"}
+              </dd>
+              <dt>Type</dt>
+              <dd>{theme.type}</dd>
+              <dt>Moves</dt>
+              <dd>{theme.moves.join(" · ")}</dd>
+              <dt>Palette</dt>
+              <dd>
+                <ul class="swatches">
+                  {theme.palette.map((color) => (
+                    <li>
+                      <span
+                        class="swatch"
+                        style={`--swatch: ${color.hex}`}
+                        aria-hidden="true"
+                      />
+                      <span class="swatch-name">{color.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </dl>
+
+            <nav class="board-links" aria-label={`${theme.name} pages`}>
+              <a href={url(`/themes/${theme.slug}/`)}>Landing</a>
+              <a href={url(`/themes/${theme.slug}/${red}/`)}>Red</a>
+              <a href={url(`/themes/${theme.slug}/yellow/`)}>Yellow</a>
+              <a href={url(`/themes/${theme.slug}/green/`)}>Green</a>
+            </nav>
+          </article>
+        ))
+      }
+    </section>
+  </article>
+</Base>

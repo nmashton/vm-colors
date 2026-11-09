@@ -1,0 +1,616 @@
+/* --------------------------------------------------------------------------
+   Street Pop — a bilingual poster wall
+   -------------------------------------------------------------------------- */
+
+[data-theme="street-pop"] {
+  --bg: #f7f1e3;
+  --bg-deep: #efe4cc;
+  --card: #fffaf0;
+  --ink: #111111;
+  --ink-soft: #3f3a32;
+  --muted: #6b6355;
+  --rule: #111111;
+  --rule-soft: #d8cbb2;
+  --accent: #d7261e;
+  --accent-strong: #b01c15;
+  --accent-soft: #f6d9d2;
+  --accent-on: #ffffff;
+  --font-display: "Bricolage Grotesque Variable", "Arial Black", sans-serif;
+  --font-body: "Be Vietnam Pro", "Gill Sans Nova", Calibri, sans-serif;
+  --font-label: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --measure: 58ch;
+  color-scheme: light;
+}
+
+[data-theme="street-pop"][data-accent="red"],
+[data-theme="street-pop"] .genre-page[data-accent="red"],
+[data-theme="street-pop"] .genre-entry[data-accent="red"] {
+  --accent: #d7261e;
+  --accent-strong: #b01c15;
+  --accent-soft: #f6d9d2;
+  --accent-on: #ffffff;
+}
+
+[data-theme="street-pop"][data-accent="yellow"],
+[data-theme="street-pop"] .genre-page[data-accent="yellow"],
+[data-theme="street-pop"] .genre-entry[data-accent="yellow"] {
+  --accent: #f2b705;
+  --accent-strong: #7a5200;
+  --accent-soft: #fbe9b8;
+  --accent-on: #111111;
+}
+
+[data-theme="street-pop"][data-accent="green"],
+[data-theme="street-pop"] .genre-page[data-accent="green"],
+[data-theme="street-pop"] .genre-entry[data-accent="green"] {
+  --accent: #0f7a5a;
+  --accent-strong: #0b5c44;
+  --accent-soft: #d8ece4;
+  --accent-on: #ffffff;
+}
+
+/* Chrome ------------------------------------------------------------------ */
+
+[data-theme="street-pop"] .site-header {
+  border-bottom: 2px solid var(--ink);
+}
+
+[data-theme="street-pop"] .site-mark-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="street-pop"] .site-mark-sub {
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+}
+
+[data-theme="street-pop"] .site-nav {
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+[data-theme="street-pop"] .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+[data-theme="street-pop"] .site-nav a::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--accent, #d7261e);
+}
+
+[data-theme="street-pop"] .site-footer {
+  border-top: 2px solid var(--ink);
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+}
+
+[data-theme="street-pop"] :focus-visible {
+  outline-color: var(--accent-strong);
+}
+
+[data-theme="street-pop"] ::selection {
+  color: var(--accent-on);
+}
+
+/* Shared type ------------------------------------------------------------- */
+
+[data-theme="street-pop"] .eyebrow {
+  display: inline-block;
+  padding: 0.25rem 0.55rem;
+  background: var(--accent);
+  color: var(--accent-on);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .intro-label,
+[data-theme="street-pop"] .note-label {
+  display: inline-block;
+  padding: 0.18rem 0.45rem;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .section-label {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .section-note {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+}
+
+[data-theme="street-pop"] .prose {
+  max-width: var(--measure);
+}
+
+[data-theme="street-pop"] .prose p {
+  margin: 0 0 1em;
+}
+
+[data-theme="street-pop"] .prose p:last-child {
+  margin-bottom: 0;
+}
+
+[data-theme="street-pop"] .prose ul,
+[data-theme="street-pop"] .prose ol {
+  margin: 0 0 1em 1.2em;
+  padding: 0;
+}
+
+[data-theme="street-pop"] .prose li + li {
+  margin-top: 0.35em;
+}
+
+/* Landing ----------------------------------------------------------------- */
+
+[data-theme="street-pop"] .landing {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 6vw, 4rem)
+    clamp(4rem, 10vw, 8rem);
+}
+
+[data-theme="street-pop"] .landing-header {
+  max-width: 72rem;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+[data-theme="street-pop"] .landing-header h1 {
+  max-width: 15ch;
+  margin-top: 1.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 1.6rem + 8vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  text-wrap: balance;
+}
+
+[data-theme="street-pop"] .landing-subtitle {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-label);
+  font-size: clamp(0.8rem, 0.7rem + 0.4vw, 1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .landing-intro {
+  max-width: 52ch;
+  margin-top: 1.6rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+[data-theme="street-pop"] .landing-intro-divider {
+  color: var(--muted);
+}
+
+[data-theme="street-pop"] .genre-index ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  list-style: none;
+}
+
+[data-theme="street-pop"] .genre-entry {
+  min-width: 0;
+  background: var(--accent-soft);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+[data-theme="street-pop"] .genre-entry:hover,
+[data-theme="street-pop"] .genre-entry:focus-within {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+[data-theme="street-pop"] .genre-link {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  min-height: 19rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  text-decoration: none;
+}
+
+[data-theme="street-pop"] .genre-number {
+  color: var(--accent-strong);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+[data-theme="street-pop"] .genre-names {
+  margin-top: auto;
+}
+
+[data-theme="street-pop"] .genre-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 1.2rem + 3vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+[data-theme="street-pop"] .genre-name-en {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--accent-strong);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .genre-arrow {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  transition: transform 140ms ease;
+}
+
+[data-theme="street-pop"] .genre-link:hover .genre-arrow,
+[data-theme="street-pop"] .genre-link:focus-visible .genre-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* Genre page -------------------------------------------------------------- */
+
+[data-theme="street-pop"] .genre-page {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 6vw, 4rem)
+    clamp(4rem, 9vw, 7rem);
+}
+
+[data-theme="street-pop"] .genre-header {
+  max-width: 80rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+[data-theme="street-pop"] .genre-header::before {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 0.5rem;
+  margin-bottom: 1.2rem;
+  background: var(--accent);
+}
+
+[data-theme="street-pop"] .genre-header h1 {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 1.4rem + 8vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+  text-wrap: balance;
+}
+
+[data-theme="street-pop"] .notice {
+  max-width: 64rem;
+  margin: 1.6rem 0 clamp(1.75rem, 4vw, 2.75rem);
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--ink);
+  background: var(--accent-soft);
+  box-shadow: 6px 6px 0 var(--ink);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+[data-theme="street-pop"] .genre-body {
+  display: block;
+}
+
+/* Intros ------------------------------------------------------------------ */
+
+[data-theme="street-pop"] .intros {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 78rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+[data-theme="street-pop"] .intro {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 2px solid var(--ink);
+  background: var(--card);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+[data-theme="street-pop"] .intro .intro-label {
+  margin-bottom: 0.9rem;
+}
+
+[data-theme="street-pop"] .intro .prose {
+  max-width: none;
+  color: var(--ink-soft);
+}
+
+/* Video ------------------------------------------------------------------- */
+
+[data-theme="street-pop"] .video {
+  max-width: 72rem;
+  margin: clamp(3rem, 7vw, 5rem) 0;
+}
+
+[data-theme="street-pop"] .video .section-label {
+  margin-bottom: 1rem;
+}
+
+[data-theme="street-pop"] .video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 2px solid var(--ink);
+  background: #000;
+  box-shadow: 10px 10px 0 var(--accent);
+}
+
+[data-theme="street-pop"] .video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+[data-theme="street-pop"] .video-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-top: 1.1rem;
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+}
+
+[data-theme="street-pop"] .video-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+[data-theme="street-pop"] .video-excerpt {
+  margin-left: auto;
+  padding: 0.15rem 0.4rem;
+  background: var(--accent);
+  color: var(--accent-on);
+  font-weight: 600;
+}
+
+/* Lyrics ------------------------------------------------------------------ */
+
+[data-theme="street-pop"] .lyrics {
+  max-width: 72rem;
+  margin: clamp(3rem, 7vw, 5rem) 0;
+}
+
+[data-theme="street-pop"] .lyrics .section-label {
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="street-pop"] .lyric-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 2rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .lyric-list {
+  list-style: none;
+  counter-reset: lyric;
+}
+
+[data-theme="street-pop"] .lyric {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(1rem, 3vw, 2.5rem);
+  padding: 1.1rem 0 1.1rem 3rem;
+  border-bottom: 1px solid var(--rule-soft);
+  counter-increment: lyric;
+  transition: background-color 140ms ease;
+}
+
+[data-theme="street-pop"] .lyric::before {
+  position: absolute;
+  top: 1.05rem;
+  left: 0;
+  color: var(--accent-strong);
+  content: counter(lyric, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+[data-theme="street-pop"] .lyric:hover {
+  background: var(--accent-soft);
+}
+
+[data-theme="street-pop"] .lyric-vi {
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+[data-theme="street-pop"] .lyric-en {
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+[data-theme="street-pop"] .lyric-list .lyric:last-child {
+  border-bottom: 0;
+}
+
+/* Placard ----------------------------------------------------------------- */
+
+[data-theme="street-pop"] .placard {
+  position: relative;
+  max-width: 56rem;
+  margin: clamp(3.5rem, 8vw, 6rem) 0 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 2px solid var(--ink);
+  background: var(--accent-soft);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+[data-theme="street-pop"] .placard-kicker {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: var(--accent);
+  color: var(--accent-on);
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+[data-theme="street-pop"] .placard-title {
+  margin-top: 0.9rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+[data-theme="street-pop"] .placard-subtitle {
+  margin-top: 0.5rem;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+[data-theme="street-pop"] .placard-performers {
+  margin-top: 0.25rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+[data-theme="street-pop"] .placard-credit {
+  margin-top: 0.25rem;
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+}
+
+[data-theme="street-pop"] .placard-notes {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+[data-theme="street-pop"] .placard-note .note-label {
+  margin-bottom: 0.6rem;
+}
+
+[data-theme="street-pop"] .placard-note .prose {
+  max-width: none;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+@media (min-width: 60rem) {
+  [data-theme="street-pop"] .intros {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  [data-theme="street-pop"] .placard-notes {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  [data-theme="street-pop"] .placard-note + .placard-note {
+    padding-left: 2.5rem;
+    border-left: 2px solid var(--ink);
+  }
+
+  [data-theme="street-pop"] .placard {
+    transform: rotate(-1deg);
+  }
+}
+
+@media (max-width: 59.999rem) {
+  [data-theme="street-pop"] .genre-index ol {
+    grid-template-columns: 1fr;
+    max-width: 32rem;
+  }
+}
+
+@media (max-width: 44rem) {
+  [data-theme="street-pop"] .lyric-head {
+    display: none;
+  }
+
+  [data-theme="street-pop"] .lyric-list {
+    margin-top: 1.5rem;
+  }
+
+  [data-theme="street-pop"] .lyric {
+    grid-template-columns: 1fr;
+  }
+
+  [data-theme="street-pop"] .lyric-en {
+    margin-top: 0.35rem;
+  }
+}

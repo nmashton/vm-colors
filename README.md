@@ -1,8 +1,10 @@
 # Colors of Vietnamese Music
 
-A small virtual museum exhibit on three genres of Vietnamese music — red, yellow,
-and green — built with [Zola](https://www.getzola.org/). It is a static site: no
-JavaScript, no webfonts, one stylesheet.
+A small virtual museum exhibit on three genres of Vietnamese music — red,
+yellow, and green — rebuilt as a static [Astro](https://astro.build/) site. The
+genre pages are MDX files composed from React content components, and the same
+content renders under four design directions: the v1 baseline and three new
+themes.
 
 ## Status
 
@@ -13,57 +15,88 @@ JavaScript, no webfonts, one stylesheet.
 | Yellow music | `/yellow/` | Content received; Vietnamese placard interpretation pending |
 | Green music | `/green/` | Content received; song link, title, and artist pending |
 
+The baseline theme is the published v1 treatment, ported to the new content
+model. Three new directions — Cabinet, Nocturne, and Street Pop — are available
+on the design review board at `/themes/`.
+
 ## Preview the site
 
-1. Install Zola (version 0.23 or newer) from
-   <https://www.getzola.org/documentation/getting-started/installation/>.
+1. Install Node.js 22.23.4 or newer (Node 24 is what the project uses).
 2. In this folder, run:
 
    ```sh
-   zola serve
+   npm install
+   npm run dev
    ```
 
-3. Open <http://127.0.0.1:1111>. The page reloads when you save a file.
+3. Open <http://localhost:4321/vm-colors/>. The page reloads when you save a
+   file.
 4. Press `Ctrl+C` to stop.
 
-If Zola is not installed and you need a one-off build, ask the maintainer.
+The design review board is at <http://localhost:4321/vm-colors/themes/>.
+
+To check the production build locally:
+
+```sh
+npm run build
+npm run preview
+```
+
+## Review the design directions
+
+The board at `/themes/` shows four renderings of the same three genre pages:
+
+- **Baseline / Paper** — the v1 treatment, kept as a control.
+- **Cabinet / Tủ Trưng Bày** — a contemporary cabinet of curiosities: serif
+  folio, vitrine video, broadside lyrics, engraved placard.
+- **Nocturne / Đêm** — a music-forward night mode: full-bleed video, timecode
+  labels, transcript lyrics, signal colors.
+- **Street Pop / Phố** — a bilingual poster wall: oversized Vietnamese,
+  asymmetric grid, color blocks, zine placard.
+
+Each preview is a full working page. Open the landing page and the Red page in
+each direction at desktop and mobile widths. The review is local for now; the
+published v1 stays live until a direction is chosen.
 
 ## Edit or add a page
 
-Every genre page is one Markdown file in `content/`:
+Every genre page is one MDX file in `src/content/music/`:
 
-- `content/red.md` — Red music
-- `content/yellow.md` — Yellow music
-- `content/green.md` — Green music
+- `src/content/music/red.mdx` — Red music
+- `src/content/music/yellow.mdx` — Yellow music
+- `src/content/music/green.mdx` — Green music
 
-To write a new page, copy the skeleton in [`docs/music-page.md`](docs/music-page.md)
-to `content/<genre>.md` and fill in the fields. That file explains every field,
-but the short version is:
+The full guide, including a copyable skeleton, is
+[`docs/music-page.md`](docs/music-page.md). The short version:
 
-1. Set `title`, `extra.genre_vi`, `extra.genre_en`, and `extra.accent`
-   (`red`, `yellow`, or `green`).
-2. Put the English and Vietnamese introductions in the body, inside the two
-   language blocks shown in the template.
-3. Put the YouTube id in `extra.video.youtube_id` (the part after `v=`).
-4. Add one `[[extra.lyrics]]` block per line, with `vi` and `en`.
-5. Fill `extra.placard` with the song title, composer, performers, and the two
-   interpretations.
-6. Set `placeholder = false` when the page is finished.
+1. Set `title`, `description`, `genreEn`, `accent`, `order`, and `status` in the
+   frontmatter.
+2. Put the two introductions inside `<Intros>`, one `<Intro lang="en">` and one
+   `<Intro lang="vi">`.
+3. Add `<Video>` if there is a performance. The `id` is the part after `v=` in
+   the YouTube URL.
+4. Add one `<Line vi="..." en="..." />` per lyric pair inside `<Lyrics>`.
+5. Fill `<Placard>` with the song title, composer, performer line, and two
+   `<Note>` interpretations.
+6. Set `status: "placeholder"` while the page is unfinished; set
+   `status: "complete"` when it is ready.
 
-Save the file and check the page at <http://127.0.0.1:1111>.
+The body is the page, so you can move the video, lyrics, and placard into any
+order. There is no `extra` object and no template edit.
 
 ### Adding a fourth genre later
 
-Content pages at the root of `content/` appear on the landing page automatically,
-ordered by `weight` (10, 20, 30, 40…). Give the new page a weight and it joins the
-list; no template edit is needed. Pick an existing accent (`red`, `yellow`,
-`green`) or ask for a new one in `static/css/main.css`.
+Create a new file in `src/content/music/` with an `order` of 40 and an existing
+accent (`red`, `yellow`, or `green`). The landing page picks it up
+automatically; no template edit is needed. A new accent needs a small style
+addition.
 
 ## What not to edit
 
-- `templates/` — the page layouts. Content changes never need them.
-- `static/css/main.css` — the exhibit's type, colors, and spacing.
-- `zola.toml` — the site URL and build settings.
+- `src/components/` — the content components and page shell.
+- `src/styles/` — the theme styles.
+- `src/pages/` — the routes and page templates.
+- `astro.config.mjs` — the site URL, base path, and build settings.
 
 If something needs to change in those files, ask the maintainer.
 
@@ -73,8 +106,8 @@ The site is set up for GitHub Pages at
 <https://nmashton.github.io/vm-colors/>.
 
 - Push to `main` (or run the workflow by hand from the Actions tab).
-- `.github/workflows/deploy.yml` installs the pinned Zola version, runs
-  `zola build`, and publishes `public/` to GitHub Pages.
+- `.github/workflows/deploy.yml` uses the official Astro GitHub Action, builds
+  the site, and publishes `dist/` to GitHub Pages.
 
 First-time setup, once per repository:
 
@@ -84,15 +117,28 @@ First-time setup, once per repository:
 2. Open Settings → Pages and set **Source** to **GitHub Actions**.
 3. Push to `main` or re-run the workflow.
 
-To check the build by hand before pushing:
+The build uses `site` and `base` in `astro.config.mjs`. If the site later moves
+to a custom domain, change `site` to the domain and remove `base`; then update
+the internal links through the `url()` helper if the path prefix changes.
 
-```sh
-zola build
-zola check
+## Project shape
+
+```text
+src/
+  components/        page shell, content components, theme bar
+  content/music/     the three MDX genre pages
+  data/site.ts       landing copy and site metadata
+  layouts/Base.astro HTML shell, metadata, header, footer
+  lib/               theme registry, URL helper, MDX component map
+  pages/             root pages, theme previews, 404
+  styles/            base CSS, fonts, theme CSS, board CSS
+docs/music-page.md   authoring guide and skeleton
+notes/               research, theme briefs, review
 ```
 
-The build uses `base_url` from `zola.toml`; if the site later moves to a custom
-domain, change that one line and push again.
+The pages load no client JavaScript. Fonts are self-hosted from Fontsource,
+subset to Latin and Vietnamese. The only third-party embed is the
+privacy-enhanced YouTube player.
 
 ## Notes for the group
 
@@ -103,3 +149,7 @@ domain, change that one line and push again.
   working translation and should be confirmed by the class.
 - "Nhạc Xanh" is the title supplied with the Green copy. The song title on its
   placard is taken from the opening lyric and still needs confirmation.
+- Yellow's Vietnamese placard interpretation is still a `TODO`; the page shows
+  the placeholder notice until it is supplied.
+- Green has no video link or artist credit yet; the performance section is
+  omitted and the placard credits read `TODO`.

@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+import Landing from "../../../components/Landing.astro";
+import { site } from "../../../data/site";
+import { themes, type ThemeSlug } from "../../../lib/themes";
+
+export async function getStaticPaths() {
+  return themes.map((theme) => ({
+    params: { theme: theme.slug },
+    props: { theme },
+  }));
+}
+
+interface Props {
+  theme: (typeof themes)[number];
+}
+
+const { theme } = Astro.props;
+const entries = (await getCollection("music")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  theme={theme.slug as ThemeSlug}
+  title={`${site.title} — ${theme.name} preview`}
+  description={theme.thesis}
+  noindex
+  preview={{ theme: theme.slug as ThemeSlug, path: "/" }}
+>
+  <Landing entries={entries} basePath={`/themes/${theme.slug}`} />
+</Base>

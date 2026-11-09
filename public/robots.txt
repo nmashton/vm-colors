@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /vm-colors/themes/
+
+Sitemap: https://nmashton.github.io/vm-colors/sitemap-index.xml

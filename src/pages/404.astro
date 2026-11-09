@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import { defaultTheme } from "../lib/themes";
+import { url } from "../lib/url";
+---
+
+<Base theme={defaultTheme} title="Page not found">
+  <article class="not-found">
+    <p class="eyebrow">404</p>
+    <h1>This page is not in the exhibit.</h1>
+    <p>
+      Return to the <a href={url("/")}>exhibit entrance</a>.
+    </p>
+  </article>
+</Base>

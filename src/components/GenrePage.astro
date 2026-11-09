@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { mdxComponents } from "../lib/mdx-components";
+
+interface Props {
+  entry: CollectionEntry<"music">;
+  Content: any;
+}
+
+const { entry, Content } = Astro.props;
+---
+
+<article class="genre-page" data-accent={entry.data.accent}>
+  <header class="genre-header">
+    <p class="eyebrow">{entry.data.genreEn}</p>
+    <h1>{entry.data.title}</h1>
+  </header>
+
+  {
+    entry.data.status === "placeholder" && (
+      <p class="notice" role="note">
+        This page is being prepared for the exhibit. Text marked{" "}
+        <strong>TODO</strong> will be replaced before opening.
+      </p>
+    )
+  }
+
+  <div class="genre-body">
+    <Content components={mdxComponents} />
+  </div>
+</article>

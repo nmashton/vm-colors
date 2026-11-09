@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { site } from "../data/site";
+import { url } from "../lib/url";
+
+interface Props {
+  entries: CollectionEntry<"music">[];
+  basePath?: string;
+}
+
+const { entries, basePath = "" } = Astro.props;
+---
+
+<article class="landing">
+  <header class="landing-header">
+    <p class="eyebrow">{site.landing.eyebrow}</p>
+    <h1>{site.title}</h1>
+    <p class="landing-subtitle" lang="vi">{site.landing.subtitleVi}</p>
+    <p class="landing-intro">
+      <span>{site.landing.introEn}</span>
+      <span class="landing-intro-divider" aria-hidden="true">/</span>
+      <span lang="vi">{site.landing.introVi}</span>
+    </p>
+  </header>
+
+  <nav class="genre-index" aria-label="Music pages">
+    <ol>
+      {
+        entries.map((entry, index) => (
+          <li class="genre-entry" data-accent={entry.data.accent}>
+            <a class="genre-link" href={url(`${basePath}/${entry.id}/`)}>
+              <span class="genre-number" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span class="genre-names">
+                <span class="genre-name" lang="vi">
+                  {entry.data.title}
+                </span>
+                <span class="genre-name-en" lang="en">
+                  {entry.data.genreEn}
+                </span>
+              </span>
+              <span class="genre-arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+</article>

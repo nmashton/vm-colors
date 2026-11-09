@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Landing from "../components/Landing.astro";
+import { site } from "../data/site";
+import { defaultTheme } from "../lib/themes";
+
+const entries = (await getCollection("music")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base
+  theme={defaultTheme}
+  title={site.title}
+  description={site.description}
+>
+  <Landing entries={entries} />
+</Base>

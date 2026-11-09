@@ -1,0 +1,585 @@
+/* --------------------------------------------------------------------------
+   Nocturne — a music-forward night mode
+   -------------------------------------------------------------------------- */
+
+[data-theme="nocturne"] {
+  --bg: #08090a;
+  --bg-deep: #101114;
+  --card: #141518;
+  --ink: #f2efe6;
+  --ink-soft: #c9c5ba;
+  --muted: #8d8a80;
+  --rule: #2a2c31;
+  --rule-soft: #1d1f23;
+  --accent: #ff453a;
+  --accent-soft: #2a1210;
+  --font-display: Anton, Impact, "Arial Narrow", sans-serif;
+  --font-body: "Be Vietnam Pro", "Gill Sans Nova", Calibri, sans-serif;
+  --font-label: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --measure: 60ch;
+  color-scheme: dark;
+}
+
+[data-theme="nocturne"][data-accent="red"],
+[data-theme="nocturne"] .genre-page[data-accent="red"],
+[data-theme="nocturne"] .genre-entry[data-accent="red"] {
+  --accent: #ff453a;
+  --accent-soft: #2a1210;
+}
+
+[data-theme="nocturne"][data-accent="yellow"],
+[data-theme="nocturne"] .genre-page[data-accent="yellow"],
+[data-theme="nocturne"] .genre-entry[data-accent="yellow"] {
+  --accent: #ffd60a;
+  --accent-soft: #2c2508;
+}
+
+[data-theme="nocturne"][data-accent="green"],
+[data-theme="nocturne"] .genre-page[data-accent="green"],
+[data-theme="nocturne"] .genre-entry[data-accent="green"] {
+  --accent: #32d74b;
+  --accent-soft: #0d2512;
+}
+
+/* Chrome ------------------------------------------------------------------ */
+
+[data-theme="nocturne"] .site-header {
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 -3px 0 0 var(--accent) inset;
+}
+
+[data-theme="nocturne"] .site-mark-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .site-mark-sub {
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+
+[data-theme="nocturne"] .site-nav {
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+[data-theme="nocturne"] .site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+}
+
+/* Shared type ------------------------------------------------------------- */
+
+[data-theme="nocturne"] .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .eyebrow::before {
+  content: "";
+  width: 0.48rem;
+  height: 0.48rem;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+[data-theme="nocturne"] .intro-label,
+[data-theme="nocturne"] .note-label {
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+[data-theme="nocturne"] .section-note {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="nocturne"] .prose {
+  max-width: var(--measure);
+}
+
+[data-theme="nocturne"] .prose p {
+  margin: 0 0 1em;
+}
+
+[data-theme="nocturne"] .prose p:last-child {
+  margin-bottom: 0;
+}
+
+[data-theme="nocturne"] .prose ul,
+[data-theme="nocturne"] .prose ol {
+  margin: 0 0 1em 1.2em;
+  padding: 0;
+}
+
+[data-theme="nocturne"] .prose li + li {
+  margin-top: 0.35em;
+}
+
+/* Landing ----------------------------------------------------------------- */
+
+[data-theme="nocturne"] .landing {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 4rem)
+    clamp(4rem, 10vw, 8rem);
+}
+
+[data-theme="nocturne"] .landing-header {
+  max-width: 72rem;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+[data-theme="nocturne"] .landing-header h1 {
+  max-width: 14ch;
+  margin-top: 1.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 1.5rem + 12vw, 11rem);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .landing-subtitle {
+  margin-top: 1.2rem;
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.15rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .landing-intro {
+  max-width: 50ch;
+  margin-top: 1.6rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+[data-theme="nocturne"] .landing-intro-divider {
+  color: var(--rule);
+}
+
+[data-theme="nocturne"] .genre-index ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  list-style: none;
+  border: 1px solid var(--rule);
+}
+
+[data-theme="nocturne"] .genre-entry {
+  min-width: 0;
+  background: var(--card);
+  border-top: 3px solid var(--accent);
+}
+
+[data-theme="nocturne"] .genre-link {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  min-height: 17rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+[data-theme="nocturne"] .genre-link:hover,
+[data-theme="nocturne"] .genre-link:focus-visible {
+  background: var(--bg-deep);
+}
+
+[data-theme="nocturne"] .genre-number {
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+[data-theme="nocturne"] .genre-names {
+  margin-top: auto;
+}
+
+[data-theme="nocturne"] .genre-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 1.2rem + 3vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .genre-name-en {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .genre-arrow {
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 1.2rem;
+  transition: transform 160ms ease;
+}
+
+[data-theme="nocturne"] .genre-link:hover .genre-arrow,
+[data-theme="nocturne"] .genre-link:focus-visible .genre-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* Genre page -------------------------------------------------------------- */
+
+[data-theme="nocturne"] .genre-page {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 6vw, 4rem)
+    clamp(4rem, 9vw, 7rem);
+}
+
+[data-theme="nocturne"] .genre-header {
+  max-width: 80rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+[data-theme="nocturne"] .genre-header::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 0.25rem;
+  margin-bottom: 1.2rem;
+  background: var(--accent);
+}
+
+[data-theme="nocturne"] .genre-header h1 {
+  margin-top: 0.9rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 1.4rem + 9vw, 9rem);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .notice {
+  max-width: var(--measure);
+  margin: 1.6rem 0 clamp(1.75rem, 4vw, 2.75rem);
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+[data-theme="nocturne"] .genre-body {
+  display: block;
+}
+
+/* Intros ------------------------------------------------------------------ */
+
+[data-theme="nocturne"] .intros {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 76rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+[data-theme="nocturne"] .intro {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--accent);
+  background: var(--card);
+}
+
+[data-theme="nocturne"] .intro .intro-label {
+  margin-bottom: 0.8rem;
+}
+
+[data-theme="nocturne"] .intro .prose {
+  max-width: none;
+  color: var(--ink-soft);
+}
+
+/* Video ------------------------------------------------------------------- */
+
+[data-theme="nocturne"] .video {
+  margin: clamp(3rem, 7vw, 5rem) calc(50% - 50vw);
+}
+
+[data-theme="nocturne"] .video .section-label {
+  padding: 0 clamp(1.25rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+[data-theme="nocturne"] .video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: #000;
+}
+
+[data-theme="nocturne"] .video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+[data-theme="nocturne"] .video-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  padding: 0 clamp(1.25rem, 6vw, 4rem);
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+}
+
+[data-theme="nocturne"] .video-title {
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+[data-theme="nocturne"] .video-excerpt {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+/* Lyrics ------------------------------------------------------------------ */
+
+[data-theme="nocturne"] .lyrics {
+  max-width: 72rem;
+  margin: clamp(3rem, 7vw, 5rem) auto;
+}
+
+[data-theme="nocturne"] .lyrics .section-label {
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="nocturne"] .lyric-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 2rem;
+  padding: 0 0 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .lyric-list {
+  list-style: none;
+  counter-reset: lyric;
+}
+
+[data-theme="nocturne"] .lyric {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(1rem, 3vw, 2.5rem);
+  padding: 1rem 0 1rem 3rem;
+  border-bottom: 1px solid var(--rule-soft);
+  counter-increment: lyric;
+  transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+[data-theme="nocturne"] .lyric::before {
+  position: absolute;
+  top: 1.15rem;
+  left: 0;
+  color: var(--accent);
+  content: counter(lyric, decimal-leading-zero);
+  font-family: var(--font-label);
+  font-size: 0.64rem;
+}
+
+[data-theme="nocturne"] .lyric:hover {
+  background: var(--card);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+[data-theme="nocturne"] .lyric-vi {
+  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+[data-theme="nocturne"] .lyric-en {
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+[data-theme="nocturne"] .lyric-list .lyric:last-child {
+  border-bottom: 0;
+}
+
+/* Placard ----------------------------------------------------------------- */
+
+[data-theme="nocturne"] .placard {
+  max-width: 64rem;
+  margin: clamp(3.5rem, 8vw, 6rem) auto 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  box-shadow: 0 0 60px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+[data-theme="nocturne"] .placard-kicker {
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .placard-title {
+  margin-top: 0.8rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.3rem + 2.4vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+[data-theme="nocturne"] .placard-subtitle {
+  margin-top: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+[data-theme="nocturne"] .placard-performers {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[data-theme="nocturne"] .placard-credit {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+}
+
+[data-theme="nocturne"] .placard-notes {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+[data-theme="nocturne"] .placard-note .note-label {
+  margin-bottom: 0.6rem;
+}
+
+[data-theme="nocturne"] .placard-note .prose {
+  max-width: none;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+@media (min-width: 60rem) {
+  [data-theme="nocturne"] .intros {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  [data-theme="nocturne"] .placard-notes {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  [data-theme="nocturne"] .placard-note + .placard-note {
+    padding-left: 2.5rem;
+    border-left: 1px solid var(--rule-soft);
+  }
+}
+
+@media (max-width: 59.999rem) {
+  [data-theme="nocturne"] .genre-index ol {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 44rem) {
+  [data-theme="nocturne"] .lyric-head {
+    display: none;
+  }
+
+  [data-theme="nocturne"] .lyric-list {
+    margin-top: 1.5rem;
+  }
+
+  [data-theme="nocturne"] .lyric {
+    grid-template-columns: 1fr;
+  }
+
+  [data-theme="nocturne"] .lyric-en {
+    margin-top: 0.35rem;
+  }
+}

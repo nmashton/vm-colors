@@ -1,0 +1,73 @@
+---
+import ThemeBar from "../components/ThemeBar.astro";
+import { site } from "../data/site";
+import { defaultTheme, type ThemeSlug } from "../lib/themes";
+import { url } from "../lib/url";
+
+import "../styles/base.css";
+import "../styles/fonts.css";
+import "../styles/themes.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  theme?: ThemeSlug | "board";
+  accent?: "red" | "yellow" | "green";
+  noindex?: boolean;
+  preview?: { theme: ThemeSlug; path: string };
+}
+
+const {
+  title,
+  description = site.description,
+  theme = defaultTheme,
+  accent,
+  noindex = false,
+  preview,
+} = Astro.props;
+
+const pageTitle = title ? `${title} — ${site.title}` : site.title;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const homeHref = preview ? url(`/themes/${preview.theme}/`) : url("/");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body data-theme={theme} data-accent={accent}>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {preview && <ThemeBar theme={preview.theme} path={preview.path} />}
+
+    <header class="site-header">
+      <a class="site-mark" href={homeHref}>
+        <span class="site-mark-title">{site.title}</span>
+        <span class="site-mark-sub">{site.tagline}</span>
+      </a>
+      <nav class="site-nav" aria-label="Site">
+        <a href={url("/themes/")}>Design directions</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>{site.title} · {site.tagline}</p>
+      <p><a href={url("/themes/")}>Design directions</a></p>
+    </footer>
+  </body>
+</html>
