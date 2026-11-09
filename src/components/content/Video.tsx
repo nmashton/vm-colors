@@ -36,7 +36,7 @@ export default function Video({
       {(title || credit || excerpt) && (
         <figcaption className="video-caption">
           {title && <span className="video-title">{title}</span>}
-          {credit && <span className="video-credit">{credit}</span>}
+          {credit && <span className="video-credit" lang="vi">{credit}</span>}
           {excerpt && <span className="video-excerpt">Excerpt {excerpt}</span>}
         </figcaption>
       )}

@@ -20,10 +20,10 @@ export default function Placard({
   return (
     <aside className="placard" aria-label="Museum placard">
       <p className="placard-kicker">Museum placard</p>
-      <h2 className="placard-title">{title}</h2>
-      {composer && <p className="placard-subtitle">{composer}</p>}
-      {performers && <p className="placard-performers">{performers}</p>}
-      {credit && <p className="placard-credit">{credit}</p>}
+      <h2 className="placard-title" lang="vi">{title}</h2>
+      {composer && <p className="placard-subtitle" lang="vi">{composer}</p>}
+      {performers && <p className="placard-performers" lang="vi">{performers}</p>}
+      {credit && <p className="placard-credit" lang="vi">{credit}</p>}
       {children && <div className="placard-notes">{children}</div>}
     </aside>
   );
