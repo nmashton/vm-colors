@@ -12,8 +12,16 @@
     {% if section.extra.subtitle_vi %}
     <p class="landing-subtitle" lang="vi">{{ section.extra.subtitle_vi }}</p>
     {% endif %}
-    {% if section.extra.intro %}
-    <p class="landing-intro">{{ section.extra.intro }}</p>
+    {% if section.extra.intro_en or section.extra.intro_vi %}
+    <p class="landing-intro">
+    {% if section.extra.intro_en %}
+      <span>{{ section.extra.intro_en }}</span>
+    {% endif %}
+    <span class="landing-intro-divider">/</span>
+    {% if section.extra.intro_vi %}
+      <span>{{ section.extra.intro_vi }}</span>
+    {% endif %}
+    </p>
     {% endif %}
   </header>
 

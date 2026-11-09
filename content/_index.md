@@ -7,5 +7,6 @@ template = "index.html"
 [extra]
 # Working translation; confirm with the class before publishing.
 subtitle_vi = "Sắc màu âm nhạc Việt Nam"
-intro = "A digital museum exhibit."
+intro_en = "A digital museum exhibit"
+intro_vi = "Trưng bày bảo tàng kỹ thuật số"
 +++

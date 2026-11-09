@@ -273,10 +273,14 @@ main:focus {
 }
 
 .landing-intro {
-  max-width: 44ch;
+  max-width: 50ch;
   margin-top: 1.6rem;
   color: var(--ink-soft);
   font-size: 1.05rem;
+}
+
+.landing-intro-divider {
+  color: var(--rule);
 }
 
 .genre-index ol {
