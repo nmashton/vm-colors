@@ -19,18 +19,7 @@
   {% endif %}
 
   <section class="about" aria-label="About {{ page.extra.genre_en }}">
-    {% if page.extra.about.en %}
-    <div class="text-block">
-      <p class="lang-tag" lang="en">English</p>
-      <div class="prose" lang="en">{{ page.extra.about.en | markdown | safe }}</div>
-    </div>
-    {% endif %}
-    {% if page.extra.about.vi %}
-    <div class="text-block">
-      <p class="lang-tag" lang="vi">Tiếng Việt</p>
-      <div class="prose" lang="vi">{{ page.extra.about.vi | markdown | safe }}</div>
-    </div>
-    {% endif %}
+    {{ page.content | safe }}
   </section>
 
   {% if page.extra.video.youtube_id %}

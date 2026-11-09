@@ -10,10 +10,6 @@ genre_vi = "Nhạc Đỏ"
 genre_en = "Red music"
 placeholder = false
 
-[extra.about]
-en = """Red music, more properly called revolutionary music, developed post-WWII as Vietnam fought for its independence from the French, though it wasn’t referred to as Red music until the 1990s to contrast it with other genres. It originally invoked ideals of patriotism and love for the people, but during the first Indochina war, themes turned to fighting and victory. It was still romantic but this was conveyed as love for one’s homeland and community to support communist ideals. It was consistently optimistic and drew from classical and folk genres. This is what most people think of when they hear the term red music. After 1975, the genre turned toward themes of praising labor and national construction. It remained very popular until the Doi Moi period when other genres began to overtake it."""
-vi = """Nhạc Đỏ, hay chính xác hơn là "Nhạc cách mạng," bắt đầu phát triển sau Chiến Tranh Thế Giới II, trong giai đoạn Việt Nam đấu tranh giành độc lập từ thực dân Pháp (1946-1954). Tuy nhiên, thuật ngữ "nhạc đỏ" chỉ mới xuất hiện từ thập niên 1990 để phân biệt với các thể loại âm nhạc khác. Ban đầu, dòng nhạc này khơi gợi lý tưởng yêu nước và tình yêu dành cho nhân dân, nhưng trong cuộc kháng chiến chống Pháp, các chủ đề dần chuyển sang tinh thần chiến đấu và khát vọng chiến thắng. Dù vẫn mang âm hưởng lãng mạn, nhưng sự lãng mạn ở đây được thể hiện qua tình yêu quê hương và cộng đồng để gắn liền với việc ủng hộ các lý tưởng cộng sản. Âm nhạc thời kỳ này luôn toát lên tinh thần lạc quan, với chất liệu được chắt lọc từ âm nhạc cổ điển và âm nhạc dân gian. Đây chính là hình ảnh mà hầu hết mọi người liên tưởng đến khi nhắc tới cụm từ "nhạc đỏ". Sau năm 1975, dòng nhạc này chuyển hướng sang các chủ đề ca ngợi lao động và công cuộc xây dựng đất nước. Nó vẫn duy trì được sự phổ biến rộng rãi cho đến thời kỳ Đổi Mới, khi các thể loại âm nhạc khác dần trở nên chiếm ưu thế hơn."""
-
 [extra.video]
 youtube_id = "q2evcToj9yQ"
 start = 42
@@ -56,3 +52,17 @@ en = "Connecting the roads of our beloved homeland,"
 vi = "Cho xe thẳng tới chiến trường"
 en = "So that vehicles may travel straight to the battlefield."
 +++
+
+<div class="text-block prose" lang="en">
+<p class="lang-tag">English</p>
+
+Red music, more properly called revolutionary music, developed post-WWII as Vietnam fought for its independence from the French, though it wasn’t referred to as Red music until the 1990s to contrast it with other genres. It originally invoked ideals of patriotism and love for the people, but during the first Indochina war, themes turned to fighting and victory. It was still romantic but this was conveyed as love for one’s homeland and community to support communist ideals. It was consistently optimistic and drew from classical and folk genres. This is what most people think of when they hear the term red music. After 1975, the genre turned toward themes of praising labor and national construction. It remained very popular until the Doi Moi period when other genres began to overtake it.
+
+</div>
+
+<div class="text-block prose" lang="vi">
+<p class="lang-tag">Tiếng Việt</p>
+
+Nhạc Đỏ, hay chính xác hơn là "Nhạc cách mạng," bắt đầu phát triển sau Chiến Tranh Thế Giới II, trong giai đoạn Việt Nam đấu tranh giành độc lập từ thực dân Pháp (1946-1954). Tuy nhiên, thuật ngữ "nhạc đỏ" chỉ mới xuất hiện từ thập niên 1990 để phân biệt với các thể loại âm nhạc khác. Ban đầu, dòng nhạc này khơi gợi lý tưởng yêu nước và tình yêu dành cho nhân dân, nhưng trong cuộc kháng chiến chống Pháp, các chủ đề dần chuyển sang tinh thần chiến đấu và khát vọng chiến thắng. Dù vẫn mang âm hưởng lãng mạn, nhưng sự lãng mạn ở đây được thể hiện qua tình yêu quê hương và cộng đồng để gắn liền với việc ủng hộ các lý tưởng cộng sản. Âm nhạc thời kỳ này luôn toát lên tinh thần lạc quan, với chất liệu được chắt lọc từ âm nhạc cổ điển và âm nhạc dân gian. Đây chính là hình ảnh mà hầu hết mọi người liên tưởng đến khi nhắc tới cụm từ "nhạc đỏ". Sau năm 1975, dòng nhạc này chuyển hướng sang các chủ đề ca ngợi lao động và công cuộc xây dựng đất nước. Nó vẫn duy trì được sự phổ biến rộng rãi cho đến thời kỳ Đổi Mới, khi các thể loại âm nhạc khác dần trở nên chiếm ưu thế hơn.
+
+</div>

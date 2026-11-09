@@ -42,7 +42,8 @@ but the short version is:
 
 1. Set `title`, `extra.genre_vi`, `extra.genre_en`, and `extra.accent`
    (`red`, `yellow`, or `green`).
-2. Put the introductions in `extra.about.en` and `extra.about.vi`.
+2. Put the English and Vietnamese introductions in the body, inside the two
+   language blocks shown in the template.
 3. Put the YouTube id in `extra.video.youtube_id` (the part after `v=`).
 4. Add one `[[extra.lyrics]]` block per line, with `vi` and `en`.
 5. Fill `extra.placard` with the song title, composer, performers, and the two

@@ -1,8 +1,9 @@
 # Music page template
 
 Copy the skeleton at the bottom of this file into a new `content/<genre>.md`
-(for example `content/red.md`), replace the values, and preview with
-`zola serve`. You never need to edit HTML, CSS, or anything in `templates/`.
+(for example `content/red.md`), replace the values, write the two introductions
+in the body, and preview with `zola serve`. You never need to edit HTML, CSS, or
+anything in `templates/`.
 
 ## Fields
 
@@ -16,8 +17,6 @@ Copy the skeleton at the bottom of this file into a new `content/<genre>.md`
 | `extra.genre_vi` | yes | Vietnamese genre name for the landing list. |
 | `extra.genre_en` | yes | English genre name for the landing list and page eyebrow. |
 | `extra.placeholder` | yes | `true` while the page is unfinished (shows a notice); `false` when complete. |
-| `extra.about.en` | yes | English introduction, one or more paragraphs. |
-| `extra.about.vi` | yes | Vietnamese introduction, one or more paragraphs. |
 | `extra.video.youtube_id` | no | The part after `v=` in the YouTube URL. Leave `""` for no video. |
 | `extra.video.start` | no | Start time in seconds. `42` means 0:42. Use `0` for the beginning. |
 | `extra.video.excerpt` | no | Display label such as `"0:42–1:14"`. Can be empty. |
@@ -41,9 +40,21 @@ Notes:
 - The placard is hidden when `extra.placard.title` is empty, and the video is
   hidden when `extra.video.youtube_id` is empty.
 
+## Body text
+
+The English and Vietnamese introductions are ordinary Markdown below the closing
+`+++`, not front matter. Wrap each language in the two blocks shown in the
+skeleton:
+
+- `class="text-block prose"` gives the text its exhibit styling.
+- `lang="en"` or `lang="vi"` tells screen readers which language it is.
+- Keep the blank lines after `<p class="lang-tag">` and around the prose. They
+  let Markdown format the text; without them it may be treated as raw HTML.
+- Write paragraphs normally, separated by a blank line.
+
 ## Copyable skeleton
 
-```toml
+```markdown
 +++
 title = "Nhạc Vàng"
 description = "One sentence about this genre."
@@ -55,10 +66,6 @@ accent = "yellow"
 genre_vi = "Nhạc Vàng"
 genre_en = "Yellow music"
 placeholder = false
-
-[extra.about]
-en = """English introduction. Use a blank line between paragraphs."""
-vi = """Giới thiệu bằng tiếng Việt. Dùng một dòng trống giữa các đoạn."""
 
 [extra.video]
 youtube_id = "VIDEO_ID"
@@ -82,6 +89,20 @@ en = "First line"
 vi = "Dòng thứ hai"
 en = "Second line"
 +++
+
+<div class="text-block prose" lang="en">
+<p class="lang-tag">English</p>
+
+English introduction. Use a blank line between paragraphs.
+
+</div>
+
+<div class="text-block prose" lang="vi">
+<p class="lang-tag">Tiếng Việt</p>
+
+Giới thiệu bằng tiếng Việt. Dùng một dòng trống giữa các đoạn.
+
+</div>
 ```
 
 Replace every example value, add or remove lyric blocks as needed, and preview

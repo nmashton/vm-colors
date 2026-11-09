@@ -11,10 +11,6 @@ genre_en = "Green music"
 placeholder = true
 lyrics = []
 
-[extra.about]
-en = """TODO: Introduction to green music in English. Replace this paragraph with the group's text."""
-vi = """TODO: Giới thiệu nhạc xanh bằng tiếng Việt. Thay đoạn này bằng nội dung của nhóm."""
-
 [extra.video]
 youtube_id = ""
 start = 0
@@ -29,3 +25,17 @@ credit = ""
 en = ""
 vi = ""
 +++
+
+<div class="text-block prose" lang="en">
+<p class="lang-tag">English</p>
+
+TODO: Introduction to green music in English. Replace this paragraph with the group's text.
+
+</div>
+
+<div class="text-block prose" lang="vi">
+<p class="lang-tag">Tiếng Việt</p>
+
+TODO: Giới thiệu nhạc xanh bằng tiếng Việt. Thay đoạn này bằng nội dung của nhóm.
+
+</div>
