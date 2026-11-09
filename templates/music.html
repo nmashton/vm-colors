@@ -41,9 +41,9 @@
       {% if page.extra.video.credit %}
       <span class="film-credit">{{ page.extra.video.credit }}</span>
       {% endif %}
-      {% if page.extra.video.excerpt %}
-      <span class="film-excerpt">Excerpt {{ page.extra.video.excerpt }}</span>
-      {% endif %}
+      <!-- {% if page.extra.video.excerpt %} -->
+      <!-- <span class="film-excerpt">Excerpt {{ page.extra.video.excerpt }}</span> -->
+      <!-- {% endif %} -->
     </figcaption>
   </figure>
   {% endif %}
@@ -52,6 +52,10 @@
   <section class="lyrics" aria-labelledby="lyrics-heading">
     <h2 class="section-label" id="lyrics-heading">Lyrics</h2>
     <p class="section-note">Vietnamese and English, line by line.</p>
+    {% if page.extra.video.excerpt %}
+    <p class="section-note">Excerpt {{ page.extra.video.excerpt }}</p>
+    {% endif %}
+    <p class="section-note"></p>
     <table class="lyric-table" aria-labelledby="lyrics-heading">
       <caption class="visually-hidden">Vietnamese lyrics with English translation, one line per row.</caption>
       <thead>
