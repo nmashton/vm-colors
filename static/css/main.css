@@ -1,0 +1,657 @@
+/* --------------------------------------------------------------------------
+   Colors of Vietnamese Music — exhibit stylesheet
+   -------------------------------------------------------------------------- */
+
+/* Tokens ------------------------------------------------------------------ */
+
+:root {
+  --paper: #f6f2e9;
+  --paper-deep: #efe9dc;
+  --card: #fbf8f1;
+  --ink: #1b1a17;
+  --ink-soft: #4b463c;
+  --muted: #6b6558;
+  --rule: #d5cdbd;
+  --rule-soft: #e4ddcf;
+
+  --accent: var(--ink);
+  --accent-soft: var(--paper-deep);
+
+  --font-display: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+  --font-body: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+
+  --measure: 62ch;
+
+  color-scheme: light;
+}
+
+.theme-red {
+  --accent: #9b2226;
+  --accent-soft: #f0dcd8;
+}
+
+.theme-yellow {
+  --accent: #8a5d00;
+  --accent-soft: #f3e8cf;
+}
+
+.theme-green {
+  --accent: #2f5d3a;
+  --accent-soft: #dfe9dd;
+}
+
+/* Base -------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 0.99rem + 0.3vw, 1.125rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--accent);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+main {
+  display: block;
+  min-height: 55vh;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Utilities --------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.6rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Shared type ------------------------------------------------------------- */
+
+.eyebrow {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.lang-tag {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.section-note {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose p {
+  margin: 0 0 1em;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Site frame -------------------------------------------------------------- */
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 6vw, 4rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-decoration: none;
+}
+
+.site-mark-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.site-mark-sub {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.site-footer {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 6vw, 4rem);
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+/* Landing ----------------------------------------------------------------- */
+
+.landing {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 6vw, 4rem) clamp(4rem, 10vw, 8rem);
+}
+
+.landing-header {
+  max-width: 48rem;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.landing-header h1 {
+  max-width: 18ch;
+  margin-top: 1.1rem;
+  font-size: clamp(2.8rem, 1.6rem + 5vw, 5.4rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.landing-subtitle {
+  margin-top: 0.9rem;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 0.95rem + 0.8vw, 1.5rem);
+}
+
+.landing-intro {
+  max-width: 44ch;
+  margin-top: 1.6rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.genre-index ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.genre-entry {
+  border-bottom: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+}
+
+.genre-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: clamp(1rem, 4vw, 3rem);
+  align-items: baseline;
+  padding: clamp(1.5rem, 3.5vw, 2.4rem) clamp(1rem, 3vw, 2.4rem);
+  text-decoration: none;
+}
+
+.genre-number {
+  align-self: start;
+  padding-top: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.genre-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.15rem + 2.6vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+}
+
+.genre-name-en {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.genre-arrow {
+  align-self: center;
+  color: var(--accent);
+  font-size: 1.4rem;
+  transition: transform 160ms ease;
+}
+
+.genre-link:hover .genre-name,
+.genre-link:focus-visible .genre-name {
+  color: var(--accent);
+}
+
+.genre-link:hover .genre-arrow,
+.genre-link:focus-visible .genre-arrow {
+  transform: translateX(5px);
+}
+
+/* Genre page -------------------------------------------------------------- */
+
+.genre-page {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 6vw, 4rem) clamp(4rem, 9vw, 7rem);
+}
+
+.genre-header {
+  max-width: 54rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.genre-header::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-bottom: 1.4rem;
+  background: var(--accent);
+}
+
+.genre-header h1 {
+  margin-top: 0.9rem;
+  font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.notice {
+  max-width: var(--measure);
+  margin-top: 1.6rem;
+  padding: 0.9rem 1.15rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.about {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.text-block {
+  padding-top: clamp(1rem, 2.5vw, 1.5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.about .text-block:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.text-block .lang-tag {
+  margin-bottom: 0.7rem;
+}
+
+/* Film -------------------------------------------------------------------- */
+
+.film {
+  max-width: 64rem;
+  margin: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.film .section-label {
+  margin-bottom: 1rem;
+}
+
+.film-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--rule);
+  background: #000;
+}
+
+.film-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.film-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.film-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.film-excerpt {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Lyrics ------------------------------------------------------------------ */
+
+.lyrics {
+  margin: clamp(3rem, 7vw, 5rem) 0;
+}
+
+.lyrics .section-label {
+  margin-bottom: 0.5rem;
+}
+
+.lyric-table {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.lyric-table th {
+  padding: 0 0 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.lyric-table th:first-child,
+.lyric-table td:first-child {
+  width: 50%;
+  padding-right: clamp(1rem, 3vw, 2.5rem);
+}
+
+.lyric-table td {
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  overflow-wrap: break-word;
+  vertical-align: top;
+}
+
+.lyric-table td[lang="vi"] {
+  color: var(--ink);
+}
+
+.lyric-table td[lang="en"] {
+  color: var(--ink-soft);
+}
+
+.lyric-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Placard ----------------------------------------------------------------- */
+
+.placard {
+  max-width: 56rem;
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  background: var(--card);
+}
+
+.placard-kicker {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.placard h2 {
+  margin-top: 0.7rem;
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.placard-subtitle {
+  margin-top: 0.35rem;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.placard-credit {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.placard-body {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+.placard-text .lang-tag {
+  margin-bottom: 0.6rem;
+}
+
+.placard-text .prose {
+  max-width: none;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+@media (min-width: 60rem) {
+  .about {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .about .text-block {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .about .text-block + .text-block {
+    padding-left: 3rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .placard-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .placard-text + .placard-text {
+    padding-left: 2.5rem;
+    border-left: 1px solid var(--rule-soft);
+  }
+}
+
+@media (max-width: 44rem) {
+  .lyric-table,
+  .lyric-table tbody,
+  .lyric-table tr,
+  .lyric-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .lyric-table thead {
+    display: none;
+  }
+
+  .lyric-table tr {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .lyric-table tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .lyric-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .lyric-table td[lang="en"] {
+    margin-top: 0.3rem;
+    color: var(--ink-soft);
+  }
+
+  .film-excerpt {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .film-frame {
+    display: none;
+  }
+
+  .placard {
+    break-inside: avoid;
+    background: #fff;
+  }
+}

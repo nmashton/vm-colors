@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language | default(value="en") }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+  <link rel="stylesheet" href="{{ get_url(path="css/main.css") }}">
+</head>
+<body class="{% block body_class %}theme-paper{% endblock body_class %}">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="site-mark" href="{{ config.base_url }}">
+      <span class="site-mark-title">{{ config.title }}</span>
+      <span class="site-mark-sub">A virtual exhibit</span>
+    </a>
+  </header>
+
+  <main id="main" tabindex="-1">
+    {% block content %}{% endblock content %}
+  </main>
+
+  <footer class="site-footer">
+    <p>A student exhibit on Vietnamese music.</p>
+  </footer>
+</body>
+</html>

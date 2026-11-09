@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+{% block body_class %}theme-{{ page.extra.accent }}{% endblock body_class %}
+
+{% block content %}
+<article class="genre-page">
+  <header class="genre-header">
+    <p class="eyebrow">{{ page.extra.genre_en }}</p>
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  {% if page.extra.placeholder %}
+  <p class="notice" role="note">
+    This page is being prepared for the exhibit. Text marked
+    <strong>TODO</strong> will be replaced before opening.
+  </p>
+  {% endif %}
+
+  <section class="about" aria-label="About {{ page.extra.genre_en }}">
+    {% if page.extra.about.en %}
+    <div class="text-block">
+      <p class="lang-tag" lang="en">English</p>
+      <div class="prose" lang="en">{{ page.extra.about.en | markdown | safe }}</div>
+    </div>
+    {% endif %}
+    {% if page.extra.about.vi %}
+    <div class="text-block">
+      <p class="lang-tag" lang="vi">Tiếng Việt</p>
+      <div class="prose" lang="vi">{{ page.extra.about.vi | markdown | safe }}</div>
+    </div>
+    {% endif %}
+  </section>
+
+  {% if page.extra.video.youtube_id %}
+  <figure class="film">
+    <h2 class="section-label">Performance</h2>
+    <div class="film-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/{{ page.extra.video.youtube_id }}{% if page.extra.video.start %}?start={{ page.extra.video.start }}{% endif %}"
+        title="{{ page.extra.video.title }}"
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <figcaption class="film-caption">
+      {% if page.extra.video.title %}
+      <span class="film-title">{{ page.extra.video.title }}</span>
+      {% endif %}
+      {% if page.extra.video.credit %}
+      <span class="film-credit">{{ page.extra.video.credit }}</span>
+      {% endif %}
+      {% if page.extra.video.excerpt %}
+      <span class="film-excerpt">Excerpt {{ page.extra.video.excerpt }}</span>
+      {% endif %}
+    </figcaption>
+  </figure>
+  {% endif %}
+
+  {% if page.extra.lyrics | length > 0 %}
+  <section class="lyrics" aria-labelledby="lyrics-heading">
+    <h2 class="section-label" id="lyrics-heading">Lyrics</h2>
+    <p class="section-note">Vietnamese and English, line by line.</p>
+    <table class="lyric-table" aria-labelledby="lyrics-heading">
+      <caption class="visually-hidden">Vietnamese lyrics with English translation, one line per row.</caption>
+      <thead>
+        <tr>
+          <th scope="col" lang="vi">Tiếng Việt</th>
+          <th scope="col" lang="en">English</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for line in page.extra.lyrics %}
+        <tr>
+          <td lang="vi">{{ line.vi }}</td>
+          <td lang="en">{{ line.en }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% if page.extra.placard.title %}
+  <aside class="placard" aria-labelledby="placard-title">
+    <p class="placard-kicker">Museum placard</p>
+    <h2 id="placard-title">{{ page.extra.placard.title }}</h2>
+    <p class="placard-subtitle">{{ page.extra.placard.artist }}</p>
+    {% if page.extra.placard.credit %}
+    <p class="placard-credit">{{ page.extra.placard.credit }}</p>
+    {% endif %}
+
+    <div class="placard-body">
+      {% if page.extra.placard.en %}
+      <div class="placard-text">
+        <p class="lang-tag" lang="en">Interpretation · English</p>
+        <div class="prose" lang="en">{{ page.extra.placard.en | markdown | safe }}</div>
+      </div>
+      {% endif %}
+      {% if page.extra.placard.vi %}
+      <div class="placard-text">
+        <p class="lang-tag" lang="vi">Cảm nhận · Tiếng Việt</p>
+        <div class="prose" lang="vi">{{ page.extra.placard.vi | markdown | safe }}</div>
+      </div>
+      {% endif %}
+    </div>
+  </aside>
+  {% endif %}
+</article>
+{% endblock content %}

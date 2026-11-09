@@ -1,6 +1,10 @@
 # The URL the site will be built for
 base_url = "https://bckybtlr.com/vm-colors/"
 
+title = "Colors of Vietnamese Music"
+description = "A virtual exhibit on three genres of Vietnamese music: red, yellow, and green."
+default_language = "en"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
