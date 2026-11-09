@@ -11,7 +11,7 @@ JavaScript, no webfonts, one stylesheet.
 | Landing | `/` | Ready |
 | Red music | `/red/` | Complete |
 | Yellow music | `/yellow/` | Content received; Vietnamese placard interpretation pending |
-| Green music | `/green/` | Placeholder; waiting for the group's copy |
+| Green music | `/green/` | Content received; song link, title, and artist pending |
 
 ## Preview the site
 
@@ -101,5 +101,5 @@ domain, change that one line and push again.
   "Tổ quốc", "Bích Liên"); confirm before changing them.
 - The Vietnamese subtitle on the landing page, "Sắc màu âm nhạc Việt Nam", is a
   working translation and should be confirmed by the class.
-- "Nhạc Xanh" is a working title for the Green placeholder page. The Yellow page
-  already uses "Nhạc Vàng", as supplied with its copy.
+- "Nhạc Xanh" is the title supplied with the Green copy. The song title on its
+  placard is taken from the opening lyric and still needs confirmation.
